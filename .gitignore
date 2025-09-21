@@ -1,0 +1,163 @@
+# Project Management App - Root .gitignore
+
+# ================================
+# Environment Variables
+# ================================
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ================================
+# Dependencies
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnp
+.pnp.js
+
+# ================================
+# Build Outputs
+# ================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vite/
+.vite-cache/
+
+# ================================
+# Development & Testing
+# ================================
+coverage/
+*.lcov
+.nyc_output
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# ================================
+# Logs & Runtime
+# ================================
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ================================
+# Cache & Temporary Files
+# ================================
+.cache/
+.parcel-cache/
+.tmp/
+temp/
+tmp/
+.npm/
+.yarn-integrity
+*.tgz
+
+# ================================
+# Editor & IDE
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# ================================
+# Operating System
+# ================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ================================
+# Database & Storage
+# ================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# ================================
+# Backup & Archive
+# ================================
+*.backup
+*.bak
+*.tmp
+*.orig
+*.rej
+*.swp
+*.swo
+
+# ================================
+# Deployment & Cloud
+# ================================
+.vercel/
+.netlify/
+.aws/
+.serverless/
+
+# ================================
+# Security & Secrets
+# ================================
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.secrets/
+
+# ================================
+# Documentation
+# ================================
+docs/_build/
+site/
+
+# ================================
+# Local Development
+# ================================
+.local/
+local/
