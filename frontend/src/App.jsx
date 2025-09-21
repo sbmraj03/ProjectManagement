@@ -31,19 +31,34 @@ function App() {
   // Initialize Socket.IO connection
   useEffect(() => {
     if (token && user) {
-      const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
-      const newSocket = io(socketUrl);
-      setSocket(newSocket);
+      console.log('Initializing socket connection...', user._id);
+      const socketUrl = import.meta.env.VITE_SOCKET_URL;
+      console.log('Socket URL:', socketUrl);
+      const newSocket = io(socketUrl, {
+        transports: ['websocket', 'polling'],
+        auth: { token }
+      });
 
-      // Join user-specific room for notifications
-      newSocket.emit('joinUser', user._id);
+      newSocket.on('connect', () => {
+        console.log('Socket connected successfully');
+        // Join user-specific room for notifications
+        newSocket.emit('joinUser', user._id);
+      });
+
+      newSocket.on('connect_error', (error) => {
+        console.error('Socket connection error:', error);
+      });
 
       // Listen for real-time notifications
       newSocket.on('notification', (data) => {
         console.log('Received notification:', data);
         // Refresh unread count
         fetchUnreadCount();
-        // Show notification toast (optional)
+        
+        // Show notification toast
+        if (data.type === 'invitation') {
+          showToast('New Project Invitation', data.message, 'info');
+        }
         if (data.type === 'invitation') {
           // You can add a toast notification here
           console.log('New invitation received!');

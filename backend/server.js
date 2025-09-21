@@ -18,7 +18,11 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://project-management-jz4o.vercel.app",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+}));
 app.use(express.json());
 
 // Routes
@@ -39,8 +43,10 @@ const server = createServer(app);
 // Initialize Socket.IO
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "*", // Use environment variable for CORS
-  },
+    origin: "https://project-management-jz4o.vercel.app",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
 });
 
 // Socket.IO event handlers

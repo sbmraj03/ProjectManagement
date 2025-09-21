@@ -167,6 +167,7 @@ router.post("/invite", protect, async (req, res) => {
     // Emit real-time notification via Socket.IO
     const io = req.app.get('io');
     if (io) {
+      // Emit to the specific user's room
       io.to(user._id.toString()).emit('notification', {
         type: 'invitation',
         notification: notification,
