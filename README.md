@@ -1,4 +1,4 @@
-## LIVE URL: https://project-management-jz4o.vercel.app/login
+## LIVE URL: https://project-management-jz4o.vercel.app
 
 # Project Management Application
 
